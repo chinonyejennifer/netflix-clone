@@ -1,5 +1,25 @@
+//to-do:
+//navbar component, 
+//hero component - this is where we will fetch hero data (API),
+//cardlist component - this is where we will fetch data (API),
+//card component,
+//footer
+import { Navbar } from "@/components/navbar";
+import { Hero } from "@/components/hero";
+import { CardList } from "@/components/cardlist";
+// import { Footer } from "@/components/footer";
+
+
 export default function BrowsePage() {
     return (
-        <h1> browse page!!!!!! </h1>
+        <div className="flex-1">
+            <Navbar />
+            <Hero />
+            <p className="flex font-semibold text-sm bg-black"> Continue watching </p>
+            <CardList />
+            {/* <Footer /> */}
+        </div>
+
     );
 }
+
