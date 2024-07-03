@@ -7,9 +7,9 @@ import useSWR from 'swr'
 
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 
-export function CardList() {
+export function CardList({ movieCategory }) {
     // const [data, setData] = useState(null)
-    const { data, error, isLoading } = useSWR(`https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.NEXT_PUBLIC_API_KEY}`, fetcher)
+    const { data, error, isLoading } = useSWR(`https://api.themoviedb.org/3/movie/${movieCategory}?api_key=${process.env.NEXT_PUBLIC_API_KEY}`, fetcher)
     console.log(process.env.NEXT_PUBLIC_API_KEY)
 
     if (error) return <div>failed to load</div>
@@ -42,14 +42,14 @@ export function CardList() {
         <>
             {/* {JSON.stringify(data.results, null, 2)} */}
             {/* <Link href="/"> Home </Link> */}
-            <div>
-                {/* <Button onClick={fetchData}>
+            {/* <div className="mb-8"> */}
+            {/* <Button onClick={fetchData}>
                     Get Data
                 </Button> */}
-                <ul className="flex space-x-2">
-                    {data?.results.map((movie) => (<li key={movie.id} className="text-white"> <MovieCard title={movie.title} image={movie.poster_path} date={movie.date} /> </li>))}
-                </ul>
-            </div>
+            <ul className="flex space-x-2">
+                {data?.results.map((movie) => (<li key={movie.id} className="text-white"> <MovieCard title={movie.title} image={movie.poster_path} date={movie.release_date} /> </li>))}
+            </ul>
+            {/* </div> */}
         </>
 
     );
