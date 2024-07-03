@@ -7,7 +7,6 @@
 import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
 import { CardList } from "@/components/cardlist";
-// import { Footer } from "@/components/footer";
 
 
 export default function BrowsePage() {
@@ -17,7 +16,6 @@ export default function BrowsePage() {
             <Hero />
             <p className="flex font-semibold text-sm bg-black"> Continue watching </p>
             <CardList />
-            {/* <Footer /> */}
         </div>
 
     );
